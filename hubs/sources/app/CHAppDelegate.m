@@ -8,6 +8,8 @@
 
 #import "CHAppDelegate.h"
 
+#import <RestKit/RestKit.h>
+
 @implementation CHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
