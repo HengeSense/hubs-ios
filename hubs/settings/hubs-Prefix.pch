@@ -16,3 +16,5 @@
     #import <SystemConfiguration/SystemConfiguration.h>
     #import <MobileCoreServices/MobileCoreServices.h>
 #endif
+
+#import "NSString+Utils.h"

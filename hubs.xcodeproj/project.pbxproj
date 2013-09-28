@@ -22,14 +22,21 @@
 		688B660A17F73E1E00A3AC32 /* hubs-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 688B65F917F73E1D00A3AC32 /* hubs-Info.plist */; };
 		688B660B17F73E1E00A3AC32 /* CHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B65FE17F73E1D00A3AC32 /* CHAppDelegate.m */; };
 		688B660C17F73E1E00A3AC32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B65FF17F73E1D00A3AC32 /* main.m */; };
-		688B660D17F73E1E00A3AC32 /* CHFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B660317F73E1D00A3AC32 /* CHFirstViewController.m */; };
-		688B660E17F73E1E00A3AC32 /* CHSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B660517F73E1D00A3AC32 /* CHSecondViewController.m */; };
 		688B662017F740FF00A3AC32 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B661717F740EB00A3AC32 /* libRestKit.a */; };
 		688B662617F7413B00A3AC32 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B662117F7413B00A3AC32 /* CFNetwork.framework */; };
 		688B662717F7413B00A3AC32 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B662217F7413B00A3AC32 /* CoreData.framework */; };
 		688B662817F7413B00A3AC32 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B662317F7413B00A3AC32 /* MobileCoreServices.framework */; };
 		688B662917F7413B00A3AC32 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B662417F7413B00A3AC32 /* Security.framework */; };
 		688B662A17F7413B00A3AC32 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B662517F7413B00A3AC32 /* SystemConfiguration.framework */; };
+		688B662F17F74AAB00A3AC32 /* CHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B662E17F74AAB00A3AC32 /* CHLoginViewController.m */; };
+		688B663217F74AC500A3AC32 /* CHHubsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B663117F74AC500A3AC32 /* CHHubsViewController.m */; };
+		688B663517F74AD700A3AC32 /* CHJoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B663417F74AD700A3AC32 /* CHJoinViewController.m */; };
+		688B663817F74AF900A3AC32 /* CHNewTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B663717F74AF900A3AC32 /* CHNewTopicViewController.m */; };
+		688B663B17F74B1300A3AC32 /* CHMyTopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B663A17F74B1300A3AC32 /* CHMyTopicsViewController.m */; };
+		688B663E17F74B2300A3AC32 /* CHTopicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B663D17F74B2300A3AC32 /* CHTopicsViewController.m */; };
+		688B664117F74B3500A3AC32 /* CHTopicDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B664017F74B3500A3AC32 /* CHTopicDetailsViewController.m */; };
+		688B664B17F75CA400A3AC32 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B664717F75C7300A3AC32 /* libMBProgressHUD.a */; };
+		688B665017F75DA200A3AC32 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B664F17F75DA200A3AC32 /* NSString+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +82,20 @@
 			remoteGlobalIDString = 25160D1514564E810060A5C5;
 			remoteInfo = RestKit;
 		};
+		688B664617F75C7300A3AC32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 688B664217F75C7200A3AC32 /* MBProgressHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D286A7491518C70F00E13FB8;
+			remoteInfo = MBProgressHUD;
+		};
+		688B664917F75C9600A3AC32 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 688B664217F75C7200A3AC32 /* MBProgressHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D286A7481518C70F00E13FB8;
+			remoteInfo = MBProgressHUD;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -96,16 +117,29 @@
 		688B65FD17F73E1D00A3AC32 /* CHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAppDelegate.h; sourceTree = "<group>"; };
 		688B65FE17F73E1D00A3AC32 /* CHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAppDelegate.m; sourceTree = "<group>"; };
 		688B65FF17F73E1D00A3AC32 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		688B660217F73E1D00A3AC32 /* CHFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHFirstViewController.h; sourceTree = "<group>"; };
-		688B660317F73E1D00A3AC32 /* CHFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHFirstViewController.m; sourceTree = "<group>"; };
-		688B660417F73E1D00A3AC32 /* CHSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHSecondViewController.h; sourceTree = "<group>"; };
-		688B660517F73E1D00A3AC32 /* CHSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHSecondViewController.m; sourceTree = "<group>"; };
 		688B660F17F740EA00A3AC32 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = libs/RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		688B662117F7413B00A3AC32 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		688B662217F7413B00A3AC32 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		688B662317F7413B00A3AC32 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		688B662417F7413B00A3AC32 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		688B662517F7413B00A3AC32 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		688B662D17F74AAB00A3AC32 /* CHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHLoginViewController.h; sourceTree = "<group>"; };
+		688B662E17F74AAB00A3AC32 /* CHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHLoginViewController.m; sourceTree = "<group>"; };
+		688B663017F74AC500A3AC32 /* CHHubsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHubsViewController.h; sourceTree = "<group>"; };
+		688B663117F74AC500A3AC32 /* CHHubsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHubsViewController.m; sourceTree = "<group>"; };
+		688B663317F74AD700A3AC32 /* CHJoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHJoinViewController.h; sourceTree = "<group>"; };
+		688B663417F74AD700A3AC32 /* CHJoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHJoinViewController.m; sourceTree = "<group>"; };
+		688B663617F74AF800A3AC32 /* CHNewTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHNewTopicViewController.h; sourceTree = "<group>"; };
+		688B663717F74AF900A3AC32 /* CHNewTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHNewTopicViewController.m; sourceTree = "<group>"; };
+		688B663917F74B1300A3AC32 /* CHMyTopicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHMyTopicsViewController.h; sourceTree = "<group>"; };
+		688B663A17F74B1300A3AC32 /* CHMyTopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHMyTopicsViewController.m; sourceTree = "<group>"; };
+		688B663C17F74B2300A3AC32 /* CHTopicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTopicsViewController.h; sourceTree = "<group>"; };
+		688B663D17F74B2300A3AC32 /* CHTopicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopicsViewController.m; sourceTree = "<group>"; };
+		688B663F17F74B3500A3AC32 /* CHTopicDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTopicDetailsViewController.h; sourceTree = "<group>"; };
+		688B664017F74B3500A3AC32 /* CHTopicDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopicDetailsViewController.m; sourceTree = "<group>"; };
+		688B664217F75C7200A3AC32 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = libs/MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
+		688B664E17F75DA200A3AC32 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		688B664F17F75DA200A3AC32 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688B664B17F75CA400A3AC32 /* libMBProgressHUD.a in Frameworks */,
 				688B662617F7413B00A3AC32 /* CFNetwork.framework in Frameworks */,
 				688B662717F7413B00A3AC32 /* CoreData.framework in Frameworks */,
 				688B662817F7413B00A3AC32 /* MobileCoreServices.framework in Frameworks */,
@@ -141,7 +176,7 @@
 		686A401E17F73C4C0023CF76 = {
 			isa = PBXGroup;
 			children = (
-				688B660F17F740EA00A3AC32 /* RestKit.xcodeproj */,
+				688B664817F75C8500A3AC32 /* libs */,
 				686A403017F73C4C0023CF76 /* hubs */,
 				686A405517F73C4D0023CF76 /* hubsTests */,
 				686A402917F73C4C0023CF76 /* Frameworks */,
@@ -241,8 +276,9 @@
 		688B65FB17F73E1D00A3AC32 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				688B664C17F75D5A00A3AC32 /* utils */,
 				688B65FC17F73E1D00A3AC32 /* app */,
-				688B660017F73E1D00A3AC32 /* view */,
+				688B662B17F74A9200A3AC32 /* view */,
 			);
 			path = sources;
 			sourceTree = "<group>";
@@ -257,25 +293,6 @@
 			path = app;
 			sourceTree = "<group>";
 		};
-		688B660017F73E1D00A3AC32 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				688B660117F73E1D00A3AC32 /* controller */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		688B660117F73E1D00A3AC32 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				688B660217F73E1D00A3AC32 /* CHFirstViewController.h */,
-				688B660317F73E1D00A3AC32 /* CHFirstViewController.m */,
-				688B660417F73E1D00A3AC32 /* CHSecondViewController.h */,
-				688B660517F73E1D00A3AC32 /* CHSecondViewController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
 		688B661017F740EA00A3AC32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +302,69 @@
 				688B661D17F740EB00A3AC32 /* RestKitFrameworkTests.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		688B662B17F74A9200A3AC32 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				688B662C17F74A9200A3AC32 /* controller */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		688B662C17F74A9200A3AC32 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				688B662D17F74AAB00A3AC32 /* CHLoginViewController.h */,
+				688B662E17F74AAB00A3AC32 /* CHLoginViewController.m */,
+				688B663017F74AC500A3AC32 /* CHHubsViewController.h */,
+				688B663117F74AC500A3AC32 /* CHHubsViewController.m */,
+				688B663317F74AD700A3AC32 /* CHJoinViewController.h */,
+				688B663417F74AD700A3AC32 /* CHJoinViewController.m */,
+				688B663617F74AF800A3AC32 /* CHNewTopicViewController.h */,
+				688B663717F74AF900A3AC32 /* CHNewTopicViewController.m */,
+				688B663917F74B1300A3AC32 /* CHMyTopicsViewController.h */,
+				688B663A17F74B1300A3AC32 /* CHMyTopicsViewController.m */,
+				688B663C17F74B2300A3AC32 /* CHTopicsViewController.h */,
+				688B663D17F74B2300A3AC32 /* CHTopicsViewController.m */,
+				688B663F17F74B3500A3AC32 /* CHTopicDetailsViewController.h */,
+				688B664017F74B3500A3AC32 /* CHTopicDetailsViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		688B664317F75C7200A3AC32 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				688B664717F75C7300A3AC32 /* libMBProgressHUD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		688B664817F75C8500A3AC32 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				688B664217F75C7200A3AC32 /* MBProgressHUD.xcodeproj */,
+				688B660F17F740EA00A3AC32 /* RestKit.xcodeproj */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		688B664C17F75D5A00A3AC32 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				688B664D17F75DA200A3AC32 /* string */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		688B664D17F75DA200A3AC32 /* string */ = {
+			isa = PBXGroup;
+			children = (
+				688B664E17F75DA200A3AC32 /* NSString+Utils.h */,
+				688B664F17F75DA200A3AC32 /* NSString+Utils.m */,
+			);
+			path = string;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +381,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				688B664A17F75C9600A3AC32 /* PBXTargetDependency */,
 				688B661F17F740F800A3AC32 /* PBXTargetDependency */,
 			);
 			name = hubs;
@@ -354,6 +435,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 688B664317F75C7200A3AC32 /* Products */;
+					ProjectRef = 688B664217F75C7200A3AC32 /* MBProgressHUD.xcodeproj */;
+				},
+				{
 					ProductGroup = 688B661017F740EA00A3AC32 /* Products */;
 					ProjectRef = 688B660F17F740EA00A3AC32 /* RestKit.xcodeproj */;
 				},
@@ -395,6 +480,13 @@
 			remoteRef = 688B661C17F740EB00A3AC32 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		688B664717F75C7300A3AC32 /* libMBProgressHUD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMBProgressHUD.a;
+			remoteRef = 688B664617F75C7300A3AC32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -425,10 +517,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688B663517F74AD700A3AC32 /* CHJoinViewController.m in Sources */,
 				688B660C17F73E1E00A3AC32 /* main.m in Sources */,
-				688B660E17F73E1E00A3AC32 /* CHSecondViewController.m in Sources */,
-				688B660D17F73E1E00A3AC32 /* CHFirstViewController.m in Sources */,
+				688B663217F74AC500A3AC32 /* CHHubsViewController.m in Sources */,
 				688B660B17F73E1E00A3AC32 /* CHAppDelegate.m in Sources */,
+				688B663817F74AF900A3AC32 /* CHNewTopicViewController.m in Sources */,
+				688B662F17F74AAB00A3AC32 /* CHLoginViewController.m in Sources */,
+				688B663B17F74B1300A3AC32 /* CHMyTopicsViewController.m in Sources */,
+				688B665017F75DA200A3AC32 /* NSString+Utils.m in Sources */,
+				688B663E17F74B2300A3AC32 /* CHTopicsViewController.m in Sources */,
+				688B664117F74B3500A3AC32 /* CHTopicDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +550,11 @@
 			isa = PBXTargetDependency;
 			name = RestKit;
 			targetProxy = 688B661E17F740F800A3AC32 /* PBXContainerItemProxy */;
+		};
+		688B664A17F75C9600A3AC32 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBProgressHUD;
+			targetProxy = 688B664917F75C9600A3AC32 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -1,5 +1,5 @@
 //
-//  CHFirstViewController.h
+//  CHHubsViewController.h
 //  hubs
 //
 //  Created by Sergey Seroshtan on 28.09.13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHFirstViewController : UIViewController
+@interface CHHubsViewController : UIViewController
 
 @end

@@ -1,3 +1,6 @@
 [submodule "libs/RestKit"]
 	path = libs/RestKit
 	url = git://github.com/RestKit/RestKit.git
+[submodule "libs/MBProgressHUD"]
+	path = libs/MBProgressHUD
+	url = https://github.com/jdg/MBProgressHUD.git
