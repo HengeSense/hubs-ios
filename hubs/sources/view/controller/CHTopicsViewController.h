@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CHTopicsViewController : UIViewController
+#import "CHHub.h"
+
+@interface CHTopicsViewController : UITableViewController
+
+/// @name Configuration
+@property (strong, nonatomic) CHHub *hub;
 
 @end

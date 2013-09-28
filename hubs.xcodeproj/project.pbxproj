@@ -19,7 +19,6 @@
 		688B660717F73E1E00A3AC32 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 688B65F117F73E1D00A3AC32 /* Main_iPad.storyboard */; };
 		688B660817F73E1E00A3AC32 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 688B65F317F73E1D00A3AC32 /* Main_iPhone.storyboard */; };
 		688B660917F73E1E00A3AC32 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 688B65F617F73E1D00A3AC32 /* InfoPlist.strings */; };
-		688B660A17F73E1E00A3AC32 /* hubs-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 688B65F917F73E1D00A3AC32 /* hubs-Info.plist */; };
 		688B660B17F73E1E00A3AC32 /* CHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B65FE17F73E1D00A3AC32 /* CHAppDelegate.m */; };
 		688B660C17F73E1E00A3AC32 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B65FF17F73E1D00A3AC32 /* main.m */; };
 		688B662017F740FF00A3AC32 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B661717F740EB00A3AC32 /* libRestKit.a */; };
@@ -37,6 +36,10 @@
 		688B664117F74B3500A3AC32 /* CHTopicDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B664017F74B3500A3AC32 /* CHTopicDetailsViewController.m */; };
 		688B664B17F75CA400A3AC32 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B664717F75C7300A3AC32 /* libMBProgressHUD.a */; };
 		688B665017F75DA200A3AC32 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B664F17F75DA200A3AC32 /* NSString+Utils.m */; };
+		688B665417F7668A00A3AC32 /* CHAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B665317F7668A00A3AC32 /* CHAlert.m */; };
+		688B665A17F7737500A3AC32 /* CHHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B665917F7737500A3AC32 /* CHHub.m */; };
+		688B665D17F7863E00A3AC32 /* CHTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B665C17F7863E00A3AC32 /* CHTopic.m */; };
+		688B666017F786D800A3AC32 /* CHUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B665F17F786D800A3AC32 /* CHUserInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +143,14 @@
 		688B664217F75C7200A3AC32 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = libs/MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
 		688B664E17F75DA200A3AC32 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
 		688B664F17F75DA200A3AC32 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
+		688B665217F7668A00A3AC32 /* CHAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAlert.h; sourceTree = "<group>"; };
+		688B665317F7668A00A3AC32 /* CHAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAlert.m; sourceTree = "<group>"; };
+		688B665817F7737500A3AC32 /* CHHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHHub.h; sourceTree = "<group>"; };
+		688B665917F7737500A3AC32 /* CHHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHHub.m; sourceTree = "<group>"; };
+		688B665B17F7863E00A3AC32 /* CHTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTopic.h; sourceTree = "<group>"; };
+		688B665C17F7863E00A3AC32 /* CHTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopic.m; sourceTree = "<group>"; };
+		688B665E17F786D800A3AC32 /* CHUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHUserInfo.h; sourceTree = "<group>"; };
+		688B665F17F786D800A3AC32 /* CHUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHUserInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +287,7 @@
 		688B65FB17F73E1D00A3AC32 /* sources */ = {
 			isa = PBXGroup;
 			children = (
+				688B665517F7735200A3AC32 /* model */,
 				688B664C17F75D5A00A3AC32 /* utils */,
 				688B65FC17F73E1D00A3AC32 /* app */,
 				688B662B17F74A9200A3AC32 /* view */,
@@ -353,6 +365,7 @@
 		688B664C17F75D5A00A3AC32 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				688B665117F7665B00A3AC32 /* alert */,
 				688B664D17F75DA200A3AC32 /* string */,
 			);
 			path = utils;
@@ -365,6 +378,44 @@
 				688B664F17F75DA200A3AC32 /* NSString+Utils.m */,
 			);
 			path = string;
+			sourceTree = "<group>";
+		};
+		688B665117F7665B00A3AC32 /* alert */ = {
+			isa = PBXGroup;
+			children = (
+				688B665217F7668A00A3AC32 /* CHAlert.h */,
+				688B665317F7668A00A3AC32 /* CHAlert.m */,
+			);
+			path = alert;
+			sourceTree = "<group>";
+		};
+		688B665517F7735200A3AC32 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				688B665617F7735200A3AC32 /* service */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		688B665617F7735200A3AC32 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				688B665717F7735200A3AC32 /* data */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		688B665717F7735200A3AC32 /* data */ = {
+			isa = PBXGroup;
+			children = (
+				688B665817F7737500A3AC32 /* CHHub.h */,
+				688B665917F7737500A3AC32 /* CHHub.m */,
+				688B665B17F7863E00A3AC32 /* CHTopic.h */,
+				688B665C17F7863E00A3AC32 /* CHTopic.m */,
+				688B665E17F786D800A3AC32 /* CHUserInfo.h */,
+				688B665F17F786D800A3AC32 /* CHUserInfo.m */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,7 +549,6 @@
 				688B660917F73E1E00A3AC32 /* InfoPlist.strings in Resources */,
 				688B660717F73E1E00A3AC32 /* Main_iPad.storyboard in Resources */,
 				688B660817F73E1E00A3AC32 /* Main_iPhone.storyboard in Resources */,
-				688B660A17F73E1E00A3AC32 /* hubs-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,12 +567,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688B665A17F7737500A3AC32 /* CHHub.m in Sources */,
 				688B663517F74AD700A3AC32 /* CHJoinViewController.m in Sources */,
 				688B660C17F73E1E00A3AC32 /* main.m in Sources */,
 				688B663217F74AC500A3AC32 /* CHHubsViewController.m in Sources */,
 				688B660B17F73E1E00A3AC32 /* CHAppDelegate.m in Sources */,
 				688B663817F74AF900A3AC32 /* CHNewTopicViewController.m in Sources */,
+				688B665D17F7863E00A3AC32 /* CHTopic.m in Sources */,
 				688B662F17F74AAB00A3AC32 /* CHLoginViewController.m in Sources */,
+				688B665417F7668A00A3AC32 /* CHAlert.m in Sources */,
+				688B666017F786D800A3AC32 /* CHUserInfo.m in Sources */,
 				688B663B17F74B1300A3AC32 /* CHMyTopicsViewController.m in Sources */,
 				688B665017F75DA200A3AC32 /* NSString+Utils.m in Sources */,
 				688B663E17F74B2300A3AC32 /* CHTopicsViewController.m in Sources */,

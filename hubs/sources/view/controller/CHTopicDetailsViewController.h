@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import "CHTopic.h"
+
 @interface CHTopicDetailsViewController : UIViewController
 
+/// @name Configuration
+@property (strong, nonatomic) CHTopic *topic;
+
+/// @name UI outlets
+@property (strong, nonatomic) IBOutlet UITextView *topicDetailsTextView;
+
 @end
+

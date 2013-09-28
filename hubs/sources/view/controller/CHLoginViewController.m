@@ -8,7 +8,8 @@
 
 #import "CHLoginViewController.h"
 
-static NSString * const kSignInSuccessSegue = @"signInSuccessSegue";
+#pragma mark - Storyboard identifiers
+static NSString * const kSignInSuccessSegue = @"CHSignInSuccessSegue";
 
 @interface CHLoginViewController () <UITextFieldDelegate>
 
@@ -17,27 +18,6 @@ static NSString * const kSignInSuccessSegue = @"signInSuccessSegue";
 @implementation CHLoginViewController
 
 #pragma mark - Initialization
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-#pragma UI lifecycle
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -49,17 +29,11 @@ static NSString * const kSignInSuccessSegue = @"signInSuccessSegue";
 #pragma mark - UI actions
 - (IBAction)signIn:(id)sender {
     if (![self.userNameTextField.text exist]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Field 'Name' is empty"
-                message:@"Please put correct value to the filed 'Name'"
-                delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
+        [CHAlert textFiledIsEmpty:self.userNameLabel.text];
         [self.userNameTextField becomeFirstResponder];
         return;
     } else if (![self.userPasswordTextField.text exist]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Field 'Password' is empty"
-                message:@"Please put correct value to the filed 'Password'"
-                delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
+        [CHAlert textFiledIsEmpty:self.userPasswordLabel.text];
         [self.userPasswordTextField becomeFirstResponder];
         return;
     }

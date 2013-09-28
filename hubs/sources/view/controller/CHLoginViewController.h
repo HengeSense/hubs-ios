@@ -11,7 +11,9 @@
 @interface CHLoginViewController : UIViewController
 
 /// @name UI outlets
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *userPasswordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *userPasswordTextField;
 
 /// @name UI actions
