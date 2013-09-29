@@ -8,9 +8,13 @@
 
 #import "CHHubsViewController.h"
 
-#import "CHTopicsViewController.h"
+#import <RestKit/RestKit.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 #import "CHHub.h"
+#import "CHTopicsViewController.h"
+
+#import "CHDataMapping.h"
 
 #pragma mark - Storyboard identifiers
 static NSString * const kShowHubTopicsSegue = @"CHShowHubTopicsSegue";
@@ -27,26 +31,10 @@ static NSString * const kShowHubTopicsSegue = @"CHShowHubTopicsSegue";
 #pragma mark - Initialization
 
 #pragma UI lifecycle
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-    CHHub *hub1 = [[CHHub alloc] init];
-    hub1.uid = @"1";
-    hub1.title = @"Hobbies";
-    hub1.topicsNum = @1;
-
-    CHHub *hub2 = [[CHHub alloc] init];
-    hub2.uid = @"2";
-    hub2.title = @"Java";
-    hub2.topicsNum = @2;
-
-    CHHub *hub3 = [[CHHub alloc] init];
-    hub3.uid = @"3";
-    hub3.title = @"Cofee";
-    hub3.topicsNum = @3;
-
-    self.hubs = @[ hub1, hub2, hub3 ];
-    // Do any additional setup after loading the view.
+    [super viewWillAppear:animated];
+    [self loadHubs];
 }
 
 #pragma mark - Segue processing
@@ -84,7 +72,7 @@ static NSString * const kShowHubTopicsSegue = @"CHShowHubTopicsSegue";
         return cell;
     }
     cell.textLabel.text = hub.title;
-    cell.detailTextLabel.text = [hub.topicsNum stringValue];
+    cell.detailTextLabel.text = [hub.topicsCount stringValue];
     return cell;
 }
 
@@ -95,5 +83,28 @@ static NSString * const kShowHubTopicsSegue = @"CHShowHubTopicsSegue";
         return self.hubs[indexPath.row];
     }
     return nil;
+}
+
+- (void)loadHubs
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.tabBarController.view animated:YES];
+
+    RKMapping *hubMapping = [CHDataMapping responseHubMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:hubMapping
+            method:RKRequestMethodGET pathPattern:nil keyPath:nil
+            statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"hubs" parameters:nil
+            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+    {
+        self.hubs = [mappingResult array];
+        [self.rootTableView reloadData];
+        [hud hide:YES];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error)
+    {
+        [hud hide:YES];
+    }];
 }
 @end

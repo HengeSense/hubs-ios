@@ -10,11 +10,20 @@
 
 #import <RestKit/RestKit.h>
 
+#import "CHDataMapping.h"
+#import "CHTopic.h"
+#import "CHEmpty.h"
+#import "CHHub.h"
+
+#pragma mark - Configuration constants
+static NSString * const kCHHudsRestServiceUrl = @"https://office-tools.donetsk.exadel.com/hubs/rest";
+
+
 @implementation CHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [self configureServices];
     return YES;
 }
 							
@@ -43,6 +52,40 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Private
+#pragma mark - Configuration
+- (void)configureServices
+{
+    RKObjectManager *objectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:kCHHudsRestServiceUrl]];
+
+//    RKResponseDescriptor *hubGetResponseDescriptor =
+//            [RKResponseDescriptor responseDescriptorWithMapping:[CHDataMapping responseHubMapping]
+//            method:RKRequestMethodGET pathPattern:nil keyPath:nil
+//            statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+//    [objectManager addResponseDescriptor:hubGetResponseDescriptor];
+//    
+//
+//    RKResponseDescriptor *responseTopicDescriptor =
+//            [RKResponseDescriptor responseDescriptorWithMapping:[CHDataMapping responseTopicMapping]
+//            method:RKRequestMethodGET pathPattern:nil keyPath:nil
+//            statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+//    
+//    [objectManager addResponseDescriptor:responseTopicDescriptor];
+//
+//    
+//    RKRequestDescriptor *topicPostRequestDescriptor =
+//            [RKRequestDescriptor requestDescriptorWithMapping:[CHDataMapping requestTopicMapping]
+//            objectClass:[CHTopic class] rootKeyPath:nil method:RKRequestMethodPOST];
+//    [objectManager addRequestDescriptor:topicPostRequestDescriptor];
+//    
+//    RKMapping *emptyResponseMapping = [RKObjectMapping mappingForClass:[CHEmpty class]];
+//    RKResponseDescriptor *emptyPostResponseDescriptor =
+//            [RKResponseDescriptor responseDescriptorWithMapping:emptyResponseMapping
+//            method:RKRequestMethodPOST pathPattern:nil keyPath:nil
+//            statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+//    [objectManager addResponseDescriptor:emptyPostResponseDescriptor];
 }
 
 @end

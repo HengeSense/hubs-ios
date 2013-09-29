@@ -40,6 +40,8 @@
 		688B665A17F7737500A3AC32 /* CHHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B665917F7737500A3AC32 /* CHHub.m */; };
 		688B665D17F7863E00A3AC32 /* CHTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B665C17F7863E00A3AC32 /* CHTopic.m */; };
 		688B666017F786D800A3AC32 /* CHUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B665F17F786D800A3AC32 /* CHUserInfo.m */; };
+		688B666417F7F3AD00A3AC32 /* CHDataMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B666317F7F3AD00A3AC32 /* CHDataMapping.m */; };
+		688B666717F8106100A3AC32 /* CHEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B666617F8106100A3AC32 /* CHEmpty.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +153,10 @@
 		688B665C17F7863E00A3AC32 /* CHTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopic.m; sourceTree = "<group>"; };
 		688B665E17F786D800A3AC32 /* CHUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHUserInfo.h; sourceTree = "<group>"; };
 		688B665F17F786D800A3AC32 /* CHUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHUserInfo.m; sourceTree = "<group>"; };
+		688B666217F7F3AD00A3AC32 /* CHDataMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHDataMapping.h; sourceTree = "<group>"; };
+		688B666317F7F3AD00A3AC32 /* CHDataMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDataMapping.m; sourceTree = "<group>"; };
+		688B666517F8106100A3AC32 /* CHEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHEmpty.h; sourceTree = "<group>"; };
+		688B666617F8106100A3AC32 /* CHEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHEmpty.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -401,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				688B665717F7735200A3AC32 /* data */,
+				688B666117F7F39A00A3AC32 /* mapping */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -408,6 +415,8 @@
 		688B665717F7735200A3AC32 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				688B666517F8106100A3AC32 /* CHEmpty.h */,
+				688B666617F8106100A3AC32 /* CHEmpty.m */,
 				688B665817F7737500A3AC32 /* CHHub.h */,
 				688B665917F7737500A3AC32 /* CHHub.m */,
 				688B665B17F7863E00A3AC32 /* CHTopic.h */,
@@ -416,6 +425,15 @@
 				688B665F17F786D800A3AC32 /* CHUserInfo.m */,
 			);
 			path = data;
+			sourceTree = "<group>";
+		};
+		688B666117F7F39A00A3AC32 /* mapping */ = {
+			isa = PBXGroup;
+			children = (
+				688B666217F7F3AD00A3AC32 /* CHDataMapping.h */,
+				688B666317F7F3AD00A3AC32 /* CHDataMapping.m */,
+			);
+			path = mapping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,6 +587,7 @@
 			files = (
 				688B665A17F7737500A3AC32 /* CHHub.m in Sources */,
 				688B663517F74AD700A3AC32 /* CHJoinViewController.m in Sources */,
+				688B666417F7F3AD00A3AC32 /* CHDataMapping.m in Sources */,
 				688B660C17F73E1E00A3AC32 /* main.m in Sources */,
 				688B663217F74AC500A3AC32 /* CHHubsViewController.m in Sources */,
 				688B660B17F73E1E00A3AC32 /* CHAppDelegate.m in Sources */,
@@ -580,6 +599,7 @@
 				688B663B17F74B1300A3AC32 /* CHMyTopicsViewController.m in Sources */,
 				688B665017F75DA200A3AC32 /* NSString+Utils.m in Sources */,
 				688B663E17F74B2300A3AC32 /* CHTopicsViewController.m in Sources */,
+				688B666717F8106100A3AC32 /* CHEmpty.m in Sources */,
 				688B664117F74B3500A3AC32 /* CHTopicDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

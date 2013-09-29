@@ -11,5 +11,6 @@
 @interface CHAlert : NSObject
 
 + (void)textFiledIsEmpty:(NSString *)textFieldName;
++ (void)userNameOrPasswordIsInvalid;
 
 @end

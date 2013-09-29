@@ -19,4 +19,12 @@
     [alert show];
 }
 
++ (void)userNameOrPasswordIsInvalid
+{
+    NSString *title = @"Error";
+    NSString *message = @"User name or password is invalid";
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil
+            cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+}
 @end

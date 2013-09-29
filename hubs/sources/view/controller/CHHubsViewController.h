@@ -10,4 +10,7 @@
 
 @interface CHHubsViewController : UITableViewController
 
+/// @name UI outlets
+@property (strong, nonatomic) IBOutlet UITableView *rootTableView;
+
 @end

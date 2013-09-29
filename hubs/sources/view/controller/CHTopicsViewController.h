@@ -12,6 +12,9 @@
 
 @interface CHTopicsViewController : UITableViewController
 
+/// @name UI outlets
+@property (strong, nonatomic) IBOutlet UITableView *rootTableView;
+
 /// @name Configuration
 @property (strong, nonatomic) CHHub *hub;
 

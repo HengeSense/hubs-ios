@@ -13,7 +13,8 @@
 
 @interface CHTopic : NSObject
 
-@property (strong, nonatomic) NSString *uid;
+@property (strong, nonatomic) NSNumber *uid;
+@property (strong, nonatomic) NSString *title;
 @property (strong, nonatomic) NSString *details;
 @property (strong, nonatomic) CHHub *hub;
 @property (strong, nonatomic) CHUserInfo *owner;

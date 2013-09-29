@@ -8,6 +8,9 @@
 
 #import "CHLoginViewController.h"
 
+#import <RestKit/RestKit.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
 #pragma mark - Storyboard identifiers
 static NSString * const kSignInSuccessSegue = @"CHSignInSuccessSegue";
 
@@ -37,6 +40,30 @@ static NSString * const kSignInSuccessSegue = @"CHSignInSuccessSegue";
         [self.userPasswordTextField becomeFirstResponder];
         return;
     }
-    [self performSegueWithIdentifier:kSignInSuccessSegue sender:sender];
+    
+    [self hideKeyboard];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    RKObjectManager *objectManager = [RKObjectManager sharedManager];
+    [objectManager.HTTPClient setAuthorizationHeaderWithUsername:self.userNameTextField.text
+            password:self.userPasswordTextField.text];
+    
+    [objectManager getObjectsAtPath:@"login" parameters:nil
+            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+    {
+        [hud hide:YES];
+        [self performSegueWithIdentifier:kSignInSuccessSegue sender:sender];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error)
+    {
+        [CHAlert userNameOrPasswordIsInvalid];
+        [hud hide:YES];
+    }];
+}
+
+#pragma mark - Private
+#pragma mark - UI helpers
+- (void)hideKeyboard
+{
+    [self.view endEditing:YES];
 }
 @end

@@ -8,8 +8,13 @@
 
 #import "CHTopicsViewController.h"
 
+#import <RestKit/RestKit.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
 #import "CHTopic.h"
 #import "CHTopicDetailsViewController.h"
+
+#import "CHDataMapping.h"
 
 #pragma mark - Storyboard identifiers
 static NSString * const kTopicDetailsViewControllerSegue = @"CHTopicDetailsViewControllerSegue";
@@ -27,22 +32,7 @@ static NSString * const kTopicDetailsViewControllerSegue = @"CHTopicDetailsViewC
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    CHTopic *topic1 = [[CHTopic alloc] init];
-    CHUserInfo *userInfo1 = [[CHUserInfo alloc] init];
-    userInfo1.name = @"Joe";
-    userInfo1.fullName = @"Joe Kent";
-    topic1.owner = userInfo1;
-    topic1.details = @"Lets go drink cofee";
-    
-    CHTopic *topic2 = [[CHTopic alloc] init];
-    CHUserInfo *userInfo2 = [[CHUserInfo alloc] init];
-    userInfo2.name = @"Tim";
-    userInfo2.fullName = @"Tim Kent";
-    topic2.owner = userInfo2;
-    topic2.details = @"Lets go play football. This game is very interesting.";
-    
-    self.topics = @[topic1, topic2];
+    [self loadTopics];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,8 +68,8 @@ static NSString * const kTopicDetailsViewControllerSegue = @"CHTopicDetailsViewC
     if (topic == nil) {
         return cell;
     }
-    cell.textLabel.text = topic.owner.fullName;
-    cell.detailTextLabel.text = topic.details;
+    cell.textLabel.text = topic.title;
+    cell.detailTextLabel.text = topic.owner.fullName;
     return cell;
 }
 
@@ -98,6 +88,29 @@ static NSString * const kTopicDetailsViewControllerSegue = @"CHTopicDetailsViewC
         return self.topics[indexPath.row];
     }
     return nil;
+}
+
+- (void)loadTopics
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.tabBarController.view animated:YES];
+    
+    RKResponseDescriptor *responseDescriptor =
+            [RKResponseDescriptor responseDescriptorWithMapping:[CHDataMapping responseTopicMapping]
+            method:RKRequestMethodGET pathPattern:nil keyPath:nil
+            statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"topics" parameters:@{ @"hub" : self.hub.uid }
+            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+    {
+        self.topics = [mappingResult array];
+        [self.rootTableView reloadData];
+        [hud hide:YES];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error)
+    {
+        [hud hide:YES];
+    }];
 }
 
 @end

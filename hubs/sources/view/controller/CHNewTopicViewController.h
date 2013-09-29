@@ -11,7 +11,9 @@
 @interface CHNewTopicViewController : UIViewController
 
 /// @name UI outlets
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *detailsTextView;
+@property (weak, nonatomic) IBOutlet UIPickerView *hubsPicker;
 
 
 /// @name UI actions

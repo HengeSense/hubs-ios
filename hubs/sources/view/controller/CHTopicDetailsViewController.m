@@ -18,7 +18,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.title = self.topic.owner.fullName;
+    self.title = self.topic.title;
     self.topicDetailsTextView.text = self.topic.details;
 }
 

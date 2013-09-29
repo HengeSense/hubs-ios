@@ -8,10 +8,16 @@
 
 #import "CHNewTopicViewController.h"
 
+#import <RestKit/RestKit.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+
+#import "CHEmpty.h"
 #import "CHHub.h"
+#import "CHTopic.h"
+#import "CHDataMapping.h"
 
 @interface CHNewTopicViewController ()
-        <UIAlertViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate>
+        <UIAlertViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, UITextFieldDelegate>
 
 @property (strong, nonatomic) NSArray *hubs;
 
@@ -23,26 +29,62 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    CHHub *hub1 = [[CHHub alloc] init];
-    hub1.uid = @"1";
-    hub1.title = @"Hobbies";
-    
-    CHHub *hub2 = [[CHHub alloc] init];
-    hub2.uid = @"2";
-    hub2.title = @"Java";
-    
-    CHHub *hub3 = [[CHHub alloc] init];
-    hub3.uid = @"3";
-    hub3.title = @"Cofee";
-    
-    self.hubs = @[ hub1, hub2, hub3 ];
+    [self loadHubs];
 }
 
 #pragma mark - UI actions
-- (IBAction)createTopic:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Topic was successfully created"
-            delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-    [alert show];
+- (IBAction)createTopic:(id)sender
+{
+    if (![self.titleTextField.text exist]) {
+        [CHAlert textFiledIsEmpty:@"Title"];
+        [self.titleTextField becomeFirstResponder];
+        return;
+    }
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.tabBarController.view animated:YES];
+    
+    CHHub *hub = [self getHubForRow:[self.hubsPicker selectedRowInComponent:0]];
+    if (hub == nil) {
+        [CHAlert textFiledIsEmpty:@"Hub"];
+        return;
+    }
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:[NSString stringWithFormat:@"like"] forKey:@"reaction"];
+    [parameters setObject:[NSString stringWithFormat:@"%@", self.titleTextField.text] forKey:@"title"];
+    [parameters setObject:[NSString stringWithFormat:@"%@", hub.uid] forKey:@"hub"];
+    if ([self.detailsTextView.text exist]) {
+        [parameters setObject:[NSString stringWithFormat:@"%@", self.detailsTextView.text] forKey:@"summary"];
+    }
+    
+    void(^successCompletion)(void) = ^ {
+        [hud hide:YES];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Topic was successfully created"
+                delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+    };
+
+    void(^failedCompletion)(NSError *error) = ^(NSError *error) {
+        NSHTTPURLResponse *response = [error.userInfo valueForKeyPath:AFNetworkingOperationFailingURLResponseErrorKey];
+        if (response != nil && (response.statusCode / 100) == 2) {
+            successCompletion();
+            return;
+        }
+        
+        [hud hide:YES];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail" message:@"Topic was not created"
+                delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+    };
+
+    [[RKObjectManager sharedManager] postObject:nil path:@"topic" parameters:parameters
+            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+    {
+        successCompletion();
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        failedCompletion(error);
+    }];
+    
 }
 
 - (IBAction)finishTopicEditing:(id)sender
@@ -77,6 +119,13 @@
     return @"";
 }
 
+#pragma mark - UITextFieldDelegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 #pragma mark - UITextViewDelegate
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
@@ -99,4 +148,26 @@
     return nil;
 }
 
+- (void)loadHubs
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.tabBarController.view animated:YES];
+
+    RKMapping *hubMapping = [CHDataMapping responseHubMapping];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:hubMapping
+            method:RKRequestMethodGET pathPattern:nil keyPath:nil
+            statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    [[RKObjectManager sharedManager] addResponseDescriptor:responseDescriptor];
+
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"hubs" parameters:nil
+            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult)
+    {
+        self.hubs = [mappingResult array];
+        [self.hubsPicker reloadAllComponents];
+        [hud hide:YES];
+    } failure:^(RKObjectRequestOperation *operation, NSError *error)
+    {
+        [hud hide:YES];
+    }];
+}
 @end
