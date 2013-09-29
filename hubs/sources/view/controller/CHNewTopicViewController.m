@@ -45,6 +45,11 @@
     [alert show];
 }
 
+- (IBAction)finishTopicEditing:(id)sender
+{
+    [self.detailsTextView resignFirstResponder];
+}
+
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
@@ -73,13 +78,16 @@
 }
 
 #pragma mark - UITextViewDelegate
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    if ([text isEqualToString:@"\n"]) {
-        [textView resignFirstResponder];
-        return NO;
-    }
-    return YES;
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Finish"
+            style:UIBarButtonItemStylePlain target:self action:@selector(finishTopicEditing:)];
+    self.navigationItem.rightBarButtonItem = anotherButton;
+}
+
+ - (void)textViewDidEndEditing:(UITextView *)textView
+{
+    self.navigationItem.rightBarButtonItem = nil;
 }
 
 #pragma mark - Private
