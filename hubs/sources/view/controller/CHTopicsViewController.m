@@ -11,9 +11,10 @@
 #import <RestKit/RestKit.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
-#import "CHTopic.h"
 #import "CHTopicDetailsViewController.h"
+#import "CHTopicTableViewCell.h"
 
+#import "CHTopic.h"
 #import "CHDataMapping.h"
 
 #pragma mark - Storyboard identifiers
@@ -59,17 +60,18 @@ static NSString * const kTopicDetailsViewControllerSegue = @"CHTopicDetailsViewC
 {
     static NSString * const kTopicsViewControllerCell = @"CHTopicsViewControllerCell";
     
-    UITableViewCell *cell  = [tableView dequeueReusableCellWithIdentifier:kTopicsViewControllerCell];
+    CHTopicTableViewCell *cell  = [tableView dequeueReusableCellWithIdentifier:kTopicsViewControllerCell];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:kTopicsViewControllerCell];
+        cell = [[CHTopicTableViewCell alloc]
+                initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kTopicsViewControllerCell];
+        
     }
     CHTopic *topic = [self getTopicForIndexPath:indexPath];
     if (topic == nil) {
         return cell;
     }
-    cell.textLabel.text = topic.title;
-    cell.detailTextLabel.text = topic.owner.fullName;
+    cell.titleLabel.text = topic.title;
+    cell.ownerLabel.text = topic.owner.fullName;
     return cell;
 }
 

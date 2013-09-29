@@ -42,6 +42,7 @@
 		688B666017F786D800A3AC32 /* CHUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B665F17F786D800A3AC32 /* CHUserInfo.m */; };
 		688B666417F7F3AD00A3AC32 /* CHDataMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B666317F7F3AD00A3AC32 /* CHDataMapping.m */; };
 		688B666717F8106100A3AC32 /* CHEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B666617F8106100A3AC32 /* CHEmpty.m */; };
+		688B667517F82A0C00A3AC32 /* CHTopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 688B667417F82A0C00A3AC32 /* CHTopicTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -157,6 +158,8 @@
 		688B666317F7F3AD00A3AC32 /* CHDataMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHDataMapping.m; sourceTree = "<group>"; };
 		688B666517F8106100A3AC32 /* CHEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHEmpty.h; sourceTree = "<group>"; };
 		688B666617F8106100A3AC32 /* CHEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHEmpty.m; sourceTree = "<group>"; };
+		688B667317F82A0C00A3AC32 /* CHTopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTopicTableViewCell.h; sourceTree = "<group>"; };
+		688B667417F82A0C00A3AC32 /* CHTopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTopicTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +328,7 @@
 		688B662B17F74A9200A3AC32 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				688B666F17F829E000A3AC32 /* cell */,
 				688B662C17F74A9200A3AC32 /* controller */,
 			);
 			path = view;
@@ -434,6 +438,15 @@
 				688B666317F7F3AD00A3AC32 /* CHDataMapping.m */,
 			);
 			path = mapping;
+			sourceTree = "<group>";
+		};
+		688B666F17F829E000A3AC32 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				688B667317F82A0C00A3AC32 /* CHTopicTableViewCell.h */,
+				688B667417F82A0C00A3AC32 /* CHTopicTableViewCell.m */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -595,6 +608,7 @@
 				688B665D17F7863E00A3AC32 /* CHTopic.m in Sources */,
 				688B662F17F74AAB00A3AC32 /* CHLoginViewController.m in Sources */,
 				688B665417F7668A00A3AC32 /* CHAlert.m in Sources */,
+				688B667517F82A0C00A3AC32 /* CHTopicTableViewCell.m in Sources */,
 				688B666017F786D800A3AC32 /* CHUserInfo.m in Sources */,
 				688B663B17F74B1300A3AC32 /* CHMyTopicsViewController.m in Sources */,
 				688B665017F75DA200A3AC32 /* NSString+Utils.m in Sources */,
