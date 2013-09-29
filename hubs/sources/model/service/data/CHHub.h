@@ -12,5 +12,6 @@
 
 @property (strong, nonatomic) NSString *uid;
 @property (strong, nonatomic) NSString *title;
+@property (assign, nonatomic) BOOL isSelected;
 
 @end

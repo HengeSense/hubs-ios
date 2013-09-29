@@ -10,4 +10,11 @@
 
 @interface CHNewTopicViewController : UIViewController
 
+/// @name UI outlets
+@property (weak, nonatomic) IBOutlet UITextView *detailsTextView;
+
+
+/// @name UI actions
+- (IBAction)createTopic:(id)sender;
+
 @end

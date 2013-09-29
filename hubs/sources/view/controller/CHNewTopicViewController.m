@@ -8,31 +8,87 @@
 
 #import "CHNewTopicViewController.h"
 
+#import "CHHub.h"
+
 @interface CHNewTopicViewController ()
+        <UIAlertViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate>
+
+@property (strong, nonatomic) NSArray *hubs;
 
 @end
 
 @implementation CHNewTopicViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
+#pragma mark - UI lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    CHHub *hub1 = [[CHHub alloc] init];
+    hub1.uid = @"1";
+    hub1.title = @"Hobbies";
+    
+    CHHub *hub2 = [[CHHub alloc] init];
+    hub2.uid = @"2";
+    hub2.title = @"Java";
+    
+    CHHub *hub3 = [[CHHub alloc] init];
+    hub3.uid = @"3";
+    hub3.title = @"Cofee";
+    
+    self.hubs = @[ hub1, hub2, hub3 ];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - UI actions
+- (IBAction)createTopic:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Topic was successfully created"
+            delegate:self cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [alert show];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.tabBarController setSelectedIndex:0];
+}
+
+#pragma mark - UIPickerViewDataSource
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.hubs.count;
+}
+
+#pragma mark - UIPickerViewDelegate
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    CHHub *hub = [self getHubForRow:row];
+    if (hub) {
+        return hub.title;
+    }
+    return @"";
+}
+
+#pragma mark - UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark - Private
+- (CHHub *)getHubForRow:(NSInteger)row
+{
+    if (row < self.hubs.count) {
+        return self.hubs[row];
+    }
+    return nil;
 }
 
 @end
